@@ -1,0 +1,31 @@
+# https://aka.ms/yaml
+
+resources:
+  containers:
+  - container: gcc
+    image: magellan2/gcc8:1.1
+
+variables:
+  poolImage: 'ubuntu-latest'
+
+trigger:
+- master
+
+stages:
+- stage: build
+  jobs:
+  - job: Build 
+    container: gcc
+    pool:
+      vmImage: $(poolImage)
+    steps:
+    - script: |
+        uname -a
+        gcc --version
+        cmake --version
+        rm -rf build
+        mkdir build
+        cd build
+        cmake ..
+        make
+

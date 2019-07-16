@@ -1,0 +1,22 @@
+== Generic VPTree
+
+.build status
+Ubuntu 18.10, GNU GCC 8.3: image:https://rgijsen.visualstudio.com/vptree/_apis/build/status/rgijsen.vptree?branchName=master["Build Status",
+link=https://rgijsen.visualstudio.com/vptree/_build/latest?definitionId=1&branchName=master]
+
+=== Description
+Generic Vantage Point Tree (VPTree) is a space partitioning algorithm. +
+This code is based on link:http://stevehanov.ca/blog/index.php?id=130[] and link:https://fribbels.github.io/vptree/writeup[]
+
+This implementation allows for generic point type (instead of only vector type points). Even aggregated point types are allowed.
+Requirements for the point type are:
+
+* Must have operator[] to access the elements
+* Must have size() function to return dimensional size
+
+The distance metric is a binary function of type: distance(point1, point2) +
+Supplied metrics are:
+
+* Euclidean full device metric
+* Euclidean periodic boundary condition, PBC, metric
+
